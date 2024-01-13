@@ -5,5 +5,6 @@ export default {
   secondary: "rgb(193, 117, 54)",
   white: "#fff",
   black: "#000",
+  tennis: "#b4ff19",
   // Add more colors as needed
 };

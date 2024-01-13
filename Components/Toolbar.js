@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import colors from "../Views/Theme";
+import theme from "../Theme/Theme";
 import { useNavigation } from "@react-navigation/native";
+import MainTennisButton from "./MainTennisButton";
 
 const Toolbar = () => {
   const navigation = useNavigation();
@@ -15,28 +16,37 @@ const Toolbar = () => {
         {/* Home button */}
         <Image
           source={require("../assets/images/icons8-tennis-player-skin-type-1-96.png")}
-          style={styles.profileLogo}
+          style={styles.image}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.roundButton]}>
+
+      <TouchableOpacity style={styles.button}>
         {/* Tournament button */}
         {/* Add your game button icon or text here */}
+        <Image
+          source={require("../assets/images/trophy.png")}
+          style={styles.image}
+        />
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.roundButton]}>
-        {/* Game button */}
-        {/* Add your game button icon or text here */}
-      </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.roundButton]}>
+
+      <MainTennisButton />
+
+      <TouchableOpacity style={styles.button}>
         {/* News button */}
         {/* Add your game button icon or text here */}
+        <Image
+          source={require("../assets/images/news.png")}
+          style={styles.image}
+        />
       </TouchableOpacity>
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("Profile")}
       >
         <Image
           source={require("../assets/images/icons8-male-user-96.png")}
-          style={styles.profileLogo}
+          style={styles.image}
         />
       </TouchableOpacity>
     </View>
@@ -50,7 +60,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
     height: 56,
-    backgroundColor: colors.white,
+    backgroundColor: theme.white,
     elevation: 4,
     boxShadow: "rgba(0, 0, 0, 0.25) 1px 6px 20px",
   },
@@ -63,13 +73,9 @@ const styles = StyleSheet.create({
 
     elevation: 8,
   },
-  profileLogo: {
-    width: 50,
-    height: 50,
-  },
-  createGameLogo: {
-    width: 50,
-    height: 50,
+  image: {
+    width: 30,
+    height: 30,
   },
 });
 

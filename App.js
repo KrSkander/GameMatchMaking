@@ -5,30 +5,33 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomePage from "./Views/HomePage";
 import ProfilePage from "./Views/ProfilePage";
 import Toolbar from "./Components/Toolbar";
-import Buttons from "./Components/Buttons";
+import StubbornButton from "./Components/StubbornButton";
 import GamesList from "./Views/GamesList";
+import { NativeBaseProvider } from "native-base";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="News" component={HomePage} />
-          <Stack.Screen name="Profile" component={ProfilePage} />
-          <Stack.Screen name="Games" component={GamesList} />
-          {/* Add more screens as needed */}
-        </Stack.Navigator>
+      <NativeBaseProvider>
+        <View style={styles.container}>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="News" component={HomePage} />
+            <Stack.Screen name="Profile" component={ProfilePage} />
+            <Stack.Screen name="Games" component={GamesList} />
+            {/* Add more screens as needed */}
+          </Stack.Navigator>
 
-        <View style={styles.buttonsContainer}>
-          <Buttons />
-        </View>
+          {/* <View style={styles.buttonsContainer}>
+          <StubbornButton />
+        </View> */}
 
-        <View style={styles.toolbarContainer}>
-          <Toolbar />
+          <View style={styles.toolbarContainer}>
+            <Toolbar />
+          </View>
         </View>
-      </View>
+      </NativeBaseProvider>
     </NavigationContainer>
   );
 };

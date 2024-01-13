@@ -1,9 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import colors from "../Views/Theme";
 import { useNavigation } from "@react-navigation/native";
-
-const Buttons = () => {
+import theme from "../Theme/Theme";
+const StubbornButton = () => {
   const navigation = useNavigation();
 
   return (
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     width: 100,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.secondary,
+    backgroundColor: theme.secondary,
     borderRadius: 100,
     padding: 20,
     marginBottom: 10,
@@ -59,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Buttons;
+export default StubbornButton;
